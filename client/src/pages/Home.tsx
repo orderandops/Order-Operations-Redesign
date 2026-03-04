@@ -174,9 +174,9 @@ export default function Home() {
                 </div>
                 
                 <div className="pt-4">
-                  <a href="https://www.orderandoperations.com/book-free-consultation" target="_blank" rel="noopener noreferrer">
+                  <a href="#contact">
                     <Button className="rounded-full px-8 h-12 text-base bg-secondary hover:bg-secondary/90 text-white">
-                      Book a Consultation
+                      Book a Consultation or Product Demo
                     </Button>
                   </a>
                 </div>
