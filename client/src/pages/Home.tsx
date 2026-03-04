@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, ChevronRight, MessageSquare, Briefcase, FileText } from "lucide-react";
+import { useAnalytics } from "@/hooks/use-analytics";
 import newLogo from "@assets/image_1772658839853.png";
 import heroConsulting from "@/assets/hero-watercolor.png";
 import textMyAppImg from "@/assets/textmyapp-watercolor.png";
@@ -8,6 +9,7 @@ import performancePathImg from "@/assets/performancepath-watercolor.png";
 import headshot from "@assets/Blue_Headshot_1772656554110.png";
 
 export default function Home() {
+  useAnalytics();
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
