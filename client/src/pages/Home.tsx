@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, ChevronRight, MessageSquare, Briefcase, FileText } from "lucide-react";
-import logo from "@assets/logo.png";
+import newLogo from "@assets/O&O_Logo_copy_1772657321727.png";
 import heroConsulting from "@/assets/hero-watercolor.png";
 import textMyAppImg from "@/assets/textmyapp-watercolor.png";
 import payrollProofImg from "@/assets/payrollproof-watercolor.png";
@@ -14,7 +14,7 @@ export default function Home() {
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
           <a href="#" className="flex items-center gap-2">
-            <img src={logo} alt="Order & Operations Consulting" className="h-10 object-contain" />
+            <img src={newLogo} alt="Order & Operations Consulting" className="h-10 object-contain mix-blend-multiply" />
           </a>
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
             <a href="#consulting" className="transition-colors hover:text-primary">Consulting</a>
@@ -311,34 +311,14 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="bg-white/10 p-8 md:p-10 rounded-3xl backdrop-blur-sm">
-                <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium">First name *</label>
-                      <input type="text" className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Jane" />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium">Last name *</label>
-                      <input type="text" className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Doe" />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium">Email *</label>
-                    <input type="email" className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="jane@company.com" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium">Company</label>
-                    <input type="text" className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Your Company" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium">Message</label>
-                    <textarea rows={4} className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-primary resize-none" placeholder="How can we help?"></textarea>
-                  </div>
-                  <Button className="w-full h-14 rounded-xl text-base bg-primary hover:bg-primary/90 text-white border-0">
-                    Send Message
-                  </Button>
-                </form>
+              <div className="bg-white rounded-3xl overflow-hidden shadow-2xl h-[600px]">
+                <iframe 
+                  src="https://calendly.com/darcie-orderandoperations" 
+                  width="100%" 
+                  height="100%" 
+                  frameBorder="0" 
+                  title="Schedule a meeting with Darcie Gregoire"
+                ></iframe>
               </div>
             </div>
           </div>
@@ -349,7 +329,7 @@ export default function Home() {
       <footer className="bg-background py-12 border-t">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <img src={logo} alt="Order & Operations Consulting" className="h-8 object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
+            <img src={newLogo} alt="Order & Operations Consulting" className="h-8 object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all mix-blend-multiply" />
             
             <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
               <a href="https://www.orderandoperations.com/faq" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">FAQ</a>
