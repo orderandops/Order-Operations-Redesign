@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, ChevronRight, MessageSquare, Briefcase, FileText } from "lucide-react";
 import { useAnalytics } from "@/hooks/use-analytics";
 import newLogo from "@assets/image_1772658839853.png";
-import heroConsulting from "@/assets/hero-watercolor.png";
+import heroConsulting from "@/assets/hero-option-growth.png";
 import textMyAppImg from "@/assets/textmyapp-watercolor.png";
 import payrollProofImg from "@/assets/payrollproof-watercolor.png";
 import performancePathImg from "@/assets/performancepath-watercolor.png";
