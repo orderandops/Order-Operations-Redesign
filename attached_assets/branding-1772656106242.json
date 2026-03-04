@@ -1,0 +1,151 @@
+{
+  "colorScheme": "light",
+  "fonts": [
+    {
+      "family": "Poppins",
+      "role": "body"
+    },
+    {
+      "family": "Cormorant Garamond",
+      "role": "heading"
+    },
+    {
+      "family": "Avenir",
+      "role": "unknown"
+    }
+  ],
+  "colors": {
+    "primary": "#AD674C",
+    "accent": "#AD674C",
+    "background": "#FFFFFF",
+    "textPrimary": "#04455E",
+    "link": "#04455E"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Poppins",
+      "heading": "Cormorant Garamond"
+    },
+    "fontStacks": {
+      "heading": [
+        "Arial",
+        "Helvetica",
+        "sans-serif"
+      ],
+      "body": [
+        "Arial",
+        "Helvetica",
+        "sans-serif"
+      ],
+      "paragraph": [
+        "Poppins",
+        "sans-serif"
+      ]
+    },
+    "fontSizes": {
+      "h1": "10px",
+      "h2": "45px",
+      "body": "16px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "3px"
+  },
+  "components": {
+    "input": {
+      "background": "transparent",
+      "textColor": "#04455E",
+      "borderColor": null,
+      "borderRadius": "22px",
+      "borderRadiusCorners": {
+        "topLeft": "22px",
+        "topRight": "22px",
+        "bottomRight": "22px",
+        "bottomLeft": "22px"
+      },
+      "shadow": "none"
+    },
+    "buttonPrimary": {
+      "background": "#AD674C",
+      "textColor": "#0000EE",
+      "borderColor": "#E0D9CE",
+      "borderRadius": "40px",
+      "borderRadiusCorners": {
+        "topLeft": "40px",
+        "topRight": "40px",
+        "bottomRight": "40px",
+        "bottomLeft": "40px"
+      },
+      "shadow": "none"
+    },
+    "buttonSecondary": {
+      "background": "#04455E",
+      "textColor": "#EDECE8",
+      "borderColor": "#04455E",
+      "borderRadius": "40px",
+      "borderRadiusCorners": {
+        "topLeft": "40px",
+        "topRight": "40px",
+        "bottomRight": "40px",
+        "bottomLeft": "40px"
+      },
+      "shadow": "rgb(237, 236, 232) 0px 0px 0px 0px"
+    }
+  },
+  "images": {
+    "logo": "File saved at: attached_assets/logo.png",
+    "favicon": "File saved at: attached_assets/favicon.png",
+    "ogImage": null,
+    "logoAlt": "image.png"
+  },
+  "__llm_logo_reasoning": {
+    "selectedIndex": 0,
+    "reasoning": "Selected #0 because it is visible, located in the header, and matches the brand inferred from the page title and URL.",
+    "confidence": 0.9,
+    "source": "llm"
+  },
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": 0,
+      "text": "Take the Mini HR Foundations Assessment",
+      "reasoning": "Button #0, 'Take the Mini HR Foundations Assessment', is the primary CTA due to its action-oriented text and vibrant brand color (#AD674C), which aligns with the site's primary color scheme."
+    },
+    "secondary": {
+      "index": 2,
+      "text": "Submit",
+      "reasoning": "Button #2, 'Submit', is selected as the secondary CTA because it has a different background color (#04455E) and serves a supportive role."
+    },
+    "confidence": 0.95
+  },
+  "personality": {
+    "tone": "professional",
+    "energy": "medium",
+    "targetAudience": "business professionals seeking HR solutions"
+  },
+  "designSystem": {
+    "framework": "custom",
+    "componentLibrary": ""
+  },
+  "confidence": {
+    "buttons": 0.95,
+    "colors": 0.9,
+    "overall": 0.925
+  },
+  "__llm_metadata": {
+    "logoSelection": {
+      "llmCalled": true,
+      "llmSucceeded": true,
+      "finalSource": "llm",
+      "rawLogoSelection": {
+        "selectedLogoIndex": 0,
+        "selectedLogoReasoning": "Selected #0 because it is visible, located in the header, and matches the brand inferred from the page title and URL.",
+        "confidence": 0.9
+      }
+    },
+    "buttonClassification": {
+      "llmCalled": true,
+      "llmSucceeded": true
+    }
+  }
+}
