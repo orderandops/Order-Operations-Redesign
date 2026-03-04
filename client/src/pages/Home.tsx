@@ -88,11 +88,18 @@ export default function Home() {
         </section>
 
         {/* Value Prop Section */}
-        <section id="consulting" className="py-24 bg-muted/50">
-          <div className="container mx-auto px-4 md:px-6">
+        <section id="consulting" className="py-24 bg-secondary relative overflow-hidden">
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-0 left-0 w-72 h-72 bg-primary rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary rounded-full blur-3xl translate-x-1/3 translate-y-1/3" />
+          </div>
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
             <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-              <h2 className="text-4xl md:text-5xl font-bold text-secondary">The Infrastructure for Your Growth</h2>
-              <p className="text-lg text-muted-foreground">
+              <div className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium bg-white/10 text-primary mb-2">
+                Consulting Services
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-white">The Infrastructure for Your Growth</h2>
+              <p className="text-lg text-white/70">
                 Most small businesses hit a "growth ceiling" where manual processes break and compliance becomes a liability. We replace that chaos with a professional people operations engine.
               </p>
             </div>
@@ -102,25 +109,42 @@ export default function Home() {
                 {
                   title: "Custom Compliance Foundations",
                   description: "We map your risks across every state you operate in, building tailored policies and workflows that keep your business airtight as you scale.",
-                  icon: FileText
+                  icon: FileText,
+                  stat: "50-State",
+                  statLabel: "Compliance Coverage"
                 },
                 {
                   title: "Intelligent Self-Service Hubs",
                   description: "We deploy AI-powered knowledge systems that give your employees 24/7 access to the answers they need, freeing leadership from bottlenecks.",
-                  icon: MessageSquare
+                  icon: MessageSquare,
+                  stat: "24/7",
+                  statLabel: "Employee Access"
                 },
                 {
                   title: "Strategic HR Partnership",
                   description: "You don't just get a software login; you get a strategic partner. We provide expert oversight for your engagement and policies.",
-                  icon: Briefcase
+                  icon: Briefcase,
+                  stat: "Director",
+                  statLabel: "Level Advisory"
                 }
               ].map((feature, i) => (
-                <div key={i} className="bg-white p-8 rounded-3xl shadow-sm border border-border hover:shadow-md transition-shadow">
-                  <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
-                    <feature.icon className="h-7 w-7 text-primary" />
+                <div key={i} className="group bg-white/10 backdrop-blur-sm p-8 rounded-3xl border border-white/10 hover:bg-white/20 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1">
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="h-14 w-14 rounded-2xl bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                      <feature.icon className="h-7 w-7 text-primary" />
+                    </div>
+                    <div className="text-right">
+                      <p className="text-2xl font-bold text-primary">{feature.stat}</p>
+                      <p className="text-xs text-white/50 uppercase tracking-wide">{feature.statLabel}</p>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold text-secondary mb-3">{feature.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
+                  <p className="text-white/70 leading-relaxed">{feature.description}</p>
+                  <div className="mt-6 pt-6 border-t border-white/10">
+                    <a href="#contact" className="inline-flex items-center text-primary text-sm font-medium group-hover:gap-2 transition-all">
+                      Learn more <ChevronRight className="h-4 w-4 ml-1" />
+                    </a>
+                  </div>
                 </div>
               ))}
             </div>
