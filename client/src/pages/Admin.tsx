@@ -245,7 +245,7 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
                 {data.topLocations.map((l: any, i: number) => (
                   <div key={i} className="flex items-center justify-between">
                     <span className="text-sm text-gray-700 truncate max-w-[70%]">
-                      {l.city}, {l.country}
+                      {l.city}{l.region ? `, ${l.region}` : ""}, {l.country}
                     </span>
                     <span className="text-sm font-semibold text-[#04455E]">
                       {l.count.toLocaleString()} visits
@@ -312,7 +312,7 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
                       <td className="py-3 px-2 text-gray-700">{v.page}</td>
                       <td className="py-3 px-2 text-gray-500 font-mono text-xs">{v.ipAddress || "—"}</td>
                       <td className="py-3 px-2 text-gray-600">
-                        {v.city && v.country ? `${v.city}, ${v.country}` : "—"}
+                        {v.city && v.country ? `${v.city}${v.region ? `, ${v.region}` : ""}, ${v.country}` : "—"}
                       </td>
                       <td className="py-3 px-2 text-gray-500 truncate max-w-[200px]">
                         {v.referrer || "Direct"}

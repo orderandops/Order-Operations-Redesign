@@ -5,6 +5,24 @@ import { insertPageViewSchema, insertClickEventSchema } from "@shared/schema";
 
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "orderandops2024";
 
+async function lookupGeo(ip: string): Promise<{ country: string | null; region: string | null; city: string | null }> {
+  try {
+    if (!ip || ip === "unknown" || ip === "::1" || ip.startsWith("127.") || ip.startsWith("10.") || ip.startsWith("192.168.")) {
+      return { country: null, region: null, city: null };
+    }
+    const response = await fetch(`http://ip-api.com/json/${ip}?fields=country,regionName,city`);
+    if (!response.ok) return { country: null, region: null, city: null };
+    const data = await response.json();
+    return {
+      country: data.country || null,
+      region: data.regionName || null,
+      city: data.city || null,
+    };
+  } catch {
+    return { country: null, region: null, city: null };
+  }
+}
+
 export async function registerRoutes(
   httpServer: Server,
   app: Express
@@ -16,10 +34,15 @@ export async function registerRoutes(
         req.socket.remoteAddress ||
         "unknown";
 
+      const geo = await lookupGeo(ip);
+
       const data = {
         ...req.body,
         ipAddress: ip,
         userAgent: req.headers["user-agent"] || null,
+        country: geo.country,
+        region: geo.region,
+        city: geo.city,
       };
 
       const parsed = insertPageViewSchema.safeParse(data);

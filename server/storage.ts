@@ -118,12 +118,13 @@ export class DatabaseStorage implements IStorage {
     const topLocations = await db
       .select({
         country: sql<string>`COALESCE(${pageViews.country}, 'Unknown')`,
+        region: sql<string>`COALESCE(${pageViews.region}, '')`,
         city: sql<string>`COALESCE(${pageViews.city}, 'Unknown')`,
         count: count(),
       })
       .from(pageViews)
       .where(gte(pageViews.timestamp, since))
-      .groupBy(sql`COALESCE(${pageViews.country}, 'Unknown'), COALESCE(${pageViews.city}, 'Unknown')`)
+      .groupBy(sql`COALESCE(${pageViews.country}, 'Unknown'), COALESCE(${pageViews.region}, ''), COALESCE(${pageViews.city}, 'Unknown')`)
       .orderBy(desc(count()))
       .limit(10);
 
@@ -162,7 +163,7 @@ export class DatabaseStorage implements IStorage {
       avgDuration: Math.round(Number(avgDurResult.avg)),
       topPages: topPages.map((r) => ({ page: r.page, views: r.views })),
       topReferrers: topReferrers.map((r) => ({ referrer: r.referrer || "Direct", count: r.count })),
-      topLocations: topLocations.map((r) => ({ country: r.country, city: r.city, count: r.count })),
+      topLocations: topLocations.map((r) => ({ country: r.country, region: r.region, city: r.city, count: r.count })),
       recentVisitors,
       clicksByElement: clicksByElement.map((r) => ({ elementText: r.elementText, href: r.href, count: r.count })),
       viewsByDay: viewsByDay.map((r) => ({ date: r.date, views: r.views })),
