@@ -12,11 +12,11 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       {/* Navigation */}
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container mx-auto px-4 md:px-6 h-24 flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2">
-            <img src={newLogo} alt="Order & Operations Consulting" className="h-16 md:h-20 w-auto object-contain mix-blend-multiply" />
+        <div className="container mx-auto px-4 md:px-6 h-auto py-6 flex items-center justify-between">
+          <a href="#" className="flex items-center gap-2 w-64 md:w-96 flex-shrink-0">
+            <img src={newLogo} alt="Order & Operations Consulting" className="w-full h-auto object-contain mix-blend-multiply origin-left scale-[1.5] md:scale-[2]" />
           </a>
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium z-10">
             <a href="#consulting" className="transition-colors hover:text-primary">Consulting</a>
             <a href="#products" className="transition-colors hover:text-primary">Software Products</a>
             <a href="#about" className="transition-colors hover:text-primary">About</a>
