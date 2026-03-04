@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, ChevronRight, MessageSquare, Briefcase, FileText } from "lucide-react";
-import newLogo from "@assets/O&O_Logo_copy_1772657321727.png";
+import newLogo from "@assets/image_1772658839853.png";
 import heroConsulting from "@/assets/hero-watercolor.png";
 import textMyAppImg from "@/assets/textmyapp-watercolor.png";
 import payrollProofImg from "@/assets/payrollproof-watercolor.png";
@@ -12,9 +12,9 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       {/* Navigation */}
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container mx-auto px-4 md:px-6 h-auto py-6 flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2 w-64 md:w-96 flex-shrink-0">
-            <img src={newLogo} alt="Order & Operations Consulting" className="w-full h-auto object-contain mix-blend-multiply origin-left scale-[1.5] md:scale-[2]" />
+        <div className="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
+          <a href="#" className="flex items-center gap-2">
+            <img src={newLogo} alt="Order & Operations Consulting" className="h-10 md:h-14 w-auto object-contain mix-blend-multiply" />
           </a>
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium z-10">
             <a href="#consulting" className="transition-colors hover:text-primary">Consulting</a>
