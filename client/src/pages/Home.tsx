@@ -48,16 +48,11 @@ export default function Home() {
                     Stop reacting to HR fires and start building a workforce that powers your ambition. We provide the order your operations require and the intelligence your people deserve.
                   </p>
                 </div>
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex">
                   <a href="/stress-test.html">
-                    <Button size="lg" className="rounded-full px-8 h-14 text-base bg-primary hover:bg-primary/90 w-full sm:w-auto">
+                    <Button size="lg" className="rounded-full px-8 h-14 text-base bg-primary hover:bg-primary/90">
                       Take the HR Liability Stress Test
                       <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                  </a>
-                  <a href="#products">
-                    <Button size="lg" variant="outline" className="rounded-full px-8 h-14 text-base border-secondary text-secondary hover:bg-secondary hover:text-white w-full sm:w-auto">
-                      Explore Solutions
                     </Button>
                   </a>
                 </div>
@@ -73,14 +68,14 @@ export default function Home() {
                 </div>
                 
                 {/* Decorative element */}
-                <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl z-20 max-w-[240px] hidden lg:block border border-border/50">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <CheckCircle2 className="h-5 w-5 text-primary" />
+                <div className="absolute -bottom-8 -left-8 bg-white p-6 rounded-2xl shadow-xl z-20 max-w-[280px] hidden lg:block border border-border/50">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
+                      <CheckCircle2 className="h-6 w-6 text-primary" />
                     </div>
-                    <p className="font-semibold text-secondary text-sm">Director-Level Advisory</p>
+                    <p className="font-semibold text-secondary">Director-Level Advisory</p>
                   </div>
-                  <p className="text-xs text-muted-foreground">Expert oversight to keep your policies and engagement running smoothly.</p>
+                  <p className="text-sm text-muted-foreground">Expert oversight to keep your policies and engagement running smoothly.</p>
                 </div>
               </div>
             </div>
