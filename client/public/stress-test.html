@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HR Liability Stress Test | Order & Operations Consulting</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+--primary-navy: #0A4A63;
+--primary-rust: #A8603E;
+--neutral-dark: #3b6a7a;
+--neutral-light: #728f96;
+--bg-cream: #edece8;
+--text-dark: #2c3e50;
+}
+
+body {
+font-family: 'Open Sans', sans-serif;
+color: var(--text-dark);
+background-color: #f5f5f3;
+margin: 0;
+padding: 30px 20px;
+line-height: 1.5;
+}
+.container {
+max-width: 800px;
+margin: 0 auto;
+padding: 40px 50px;
+box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+background-color: white;
+border-radius: 4px;
+}
+
+header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+border-bottom: 3px solid var(--primary-rust);
+padding-bottom: 15px;
+margin-bottom: 25px;
+}
+
+.logo-text {
+display: flex;
+flex-direction: column;
+}
+
+.logo-main {
+font-family: 'Montserrat', sans-serif;
+font-size: 1.3rem;
+font-weight: 700;
+color: var(--primary-navy);
+letter-spacing: 1px;
+line-height: 1.2;
+}
+
+.logo-main span {
+color: var(--primary-rust);
+}
+
+.logo-sub {
+font-family: 'Montserrat', sans-serif;
+font-size: 0.6rem;
+color: #9B9B9B;
+letter-spacing: 2px;
+text-transform: uppercase;
+margin-top: 3px;
+}
+.header-text {
+text-align: right;
+}
+
+.header-title {
+font-family: 'Montserrat', sans-serif;
+color: var(--primary-navy);
+font-size: 1.5rem;
+font-weight: 700;
+margin: 0;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+.header-subtitle {
+color: var(--neutral-light);
+font-size: 0.8rem;
+margin: 5px 0 0 0;
+font-weight: 600;
+}
+
+.intro-box {
+background-color: var(--bg-cream);
+border-left: 4px solid var(--primary-navy);
+padding: 15px 20px;
+margin-bottom: 30px;
+border-radius: 0 8px 8px 0;
+}
+
+.intro-box p {
+margin: 0;
+font-size: 0.9rem;
+}
+
+.question-block {
+margin-bottom: 20px;
+padding-bottom: 15px;
+border-bottom: 1px solid var(--bg-cream);
+}
+
+.question-title {
+font-family: 'Montserrat', sans-serif;
+color: var(--primary-rust);
+font-size: 1rem;
+font-weight: 700;
+margin: 0 0 5px 0;
+}
+
+.question-text {
+font-size: 0.95rem;
+margin: 0 0 10px 0;
+}
+
+.checkbox-container {
+display: flex;
+gap: 30px;
+}
+
+.check-item {
+display: flex;
+align-items: center;
+gap: 10px;
+font-size: 0.9rem;
+}
+
+.square {
+width: 16px;
+height: 16px;
+border: 2px solid var(--neutral-dark);
+border-radius: 3px;
+flex-shrink: 0;
+}
+
+.results-box {
+background-color: var(--primary-navy);
+color: white;
+padding: 30px;
+border-radius: 8px;
+margin-top: 30px;
+text-align: center;
+}
+
+.results-box h2 {
+font-family: 'Montserrat', sans-serif;
+color: white;
+margin: 0 0 15px 0;
+font-size: 1.4rem;
+letter-spacing: 1px;
+}
+.results-box p {
+margin: 0 0 12px 0;
+font-size: 0.95rem;
+color: #d9eaf0;
+}
+
+.results-box .warning {
+color: #edbdad;
+font-weight: 600;
+}
+
+.cta-button {
+display: inline-block;
+background-color: var(--primary-rust);
+color: white;
+text-decoration: none;
+padding: 14px 30px;
+border-radius: 4px;
+font-family: 'Montserrat', sans-serif;
+font-weight: 700;
+font-size: 0.95rem;
+margin-top: 15px;
+text-transform: uppercase;
+letter-spacing: 1px;
+transition: background-color 0.2s;
+}
+
+.cta-button:hover {
+background-color: #8f4f30;
+}
+.footer {
+text-align: center;
+margin-top: 30px;
+font-size: 0.75rem;
+color: var(--neutral-light);
+}
+
+@media print {
+body { background-color: white; padding: 0; }
+.container { box-shadow: none; padding: 20px; max-width: 100%; }
+.results-box { break-inside: avoid; }
+.question-block { break-inside: avoid; }
+.cta-button { display: none; }
+}
+@media (max-width: 600px) {
+.container { padding: 25px 20px; }
+header { flex-direction: column; gap: 15px; text-align: left; }
+.header-text { text-align: left; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+<div class="logo-text">
+<div class="logo-main">o<span>&</span>O</div>
+<div class="logo-sub">Order & Operations Consulting</div>
+</div>
+<div class="header-text">
+<h1 class="header-title">Liability Stress Test</h1>
+<p class="header-subtitle">For Growing & Distributed Workforces (40+ Employees)</p>
+</div>
+</header>
+
+<div class="intro-box">
+<p><strong>Instructions:</strong> As a former <strong>U.S. Dept. of Labor Investigator</strong> and <strong>HR Director</strong>, these are the top 8 areas I audit to find hidden, six-figure liabilities in growing companies. If you answer "No" or "I don't know" to any question, your company is currently carrying active financial exposure.</p>
+</div>
+
+<div class="question-block">
+<h3 class="question-title">1. The Remote Relocation Trap</h3>
+<p class="question-text">Do you have a mandatory, signed 30-day notice policy for employee relocation to prevent accidental tax, unemployment, and wage-hour nexus in high-regulation states (e.g., CA, NY, IL)?</p>
+<div class="checkbox-container">
+<div class="check-item"><div class="square"></div> <span>Yes</span></div>
+<div class="check-item"><div class="square"></div> <span>No / Unsure</span></div>
+</div>
+</div>
+
+<div class="question-block">
+<h3 class="question-title">2. The Exemption Illusion</h3>
+<p class="question-text">Are you paying a fixed salary to any employee who spends more than 50% of their time executing routine tasks (rather than high-level strategy or managing 2+ full-time employees)?</p>
+<div class="checkbox-container">
+<div class="check-item"><div class="square"></div> <span>No, properly audited</span></div>
+<div class="check-item"><div class="square"></div> <span>Yes / Unsure</span></div>
+</div>
+</div>
+
+<div class="question-block">
+<h3 class="question-title">3. The 1099 Misclassification Danger</h3>
+<p class="question-text">Are you paying any 1099 independent contractors who perform core business functions, work set hours, or use company-provided equipment?</p>
+<div class="checkbox-container">
+<div class="check-item"><div class="square"></div> <span>No, all audited</span></div>
+<div class="check-item"><div class="square"></div> <span>Yes / Unsure</span></div>
+</div>
+</div>
+
+<div class="question-block">
+<h3 class="question-title">4. The Departure Threat</h3>
+<p class="question-text">Do you have a written, state-by-state procedure for delivering a separated employee's final paycheck within the legally required timeframe (which can be as short as 24–72 hours)?</p>
+<div class="checkbox-container">
+<div class="check-item"><div class="square"></div> <span>Yes</span></div>
+<div class="check-item"><div class="square"></div> <span>No / Unsure</span></div>
+</div>
+</div>
+
+<div class="question-block">
+<h3 class="question-title">5. The Hidden State Mandates</h3>
+<p class="question-text">Are you fully compliant with state-specific retirement and leave mandates (e.g., state 401k, sick leave, and parental leave laws) that carry penalties of up to $500 per employee for non-compliance?</p>
+<div class="checkbox-container">
+<div class="check-item"><div class="square"></div> <span>Yes</span></div>
+<div class="check-item"><div class="square"></div> <span>No / Unsure</span></div>
+</div>
+</div>
+
+<div class="question-block">
+<h3 class="question-title">6. Form I-9 & Employment Verification</h3>
+<p class="question-text">Are all employee I-9s completed properly and on time (within 3 days of hire), stored separately from personnel files, and is all employment authorization documentation current?</p>
+<div class="checkbox-container">
+<div class="check-item"><div class="square"></div> <span>Yes</span></div>
+<div class="check-item"><div class="square"></div> <span>No / Unsure</span></div>
+</div>
+</div>
+
+<div class="question-block">
+<h3 class="question-title">7. HRIS & Payroll Automation Failures</h3>
+<p class="question-text">Is your payroll system fully configured to automatically track, flag, and report multi-state PTO accruals and daily/weekly overtime — without relying on manual manager intervention?</p>
+<div class="checkbox-container">
+<div class="check-item"><div class="square"></div> <span>Yes</span></div>
+<div class="check-item"><div class="square"></div> <span>No / Unsure</span></div>
+</div>
+</div>
+
+<div class="question-block" style="border-bottom: none; margin-bottom: 0;">
+<h3 class="question-title">8. The Off-the-Clock Liability</h3>
+<p class="question-text">Do you have a strict, enforced time-tracking policy for non-exempt remote workers to prevent "off-the-clock" work via Slack, Teams, or email outside of business hours?</p>
+<div class="checkbox-container">
+<div class="check-item"><div class="square"></div> <span>Yes</span></div>
+<div class="check-item"><div class="square"></div> <span>No / Unsure</span></div>
+</div>
+</div>
+
+<div class="results-box">
+<h2>YOUR RESULTS</h2>
+<p><strong>0 "No/Unsure" Answers:</strong> Your foundation is solid. Ensure you are auditing classifications annually as you scale.</p>
+<p class="warning">1 or More "No/Unsure" Answers: You are currently operating with unmitigated financial liability. In the eyes of the DOL, ignorance of state-by-state nuance is not a defense.</p>
+<p style="margin-top: 20px; font-size: 0.9rem;">Let's fix the leaks before an audit — or a disgruntled employee — finds them first.</p>
+<a href="https://calendly.com/darcie-orderandoperations/30min" class="cta-button">Book Your 30-Min Consultation</a>
+</div>
+<div class="footer">
+&copy; 2026 Order & Operations Consulting &nbsp;|&nbsp; <a href="https://orderandoperations.com" style="color: var(--neutral-light);">orderandoperations.com</a>
+</div>
+
+<div style="text-align: center; margin-top: 30px; padding-bottom: 10px;">
+<a href="/" class="cta-button">&#8592; Back to Home</a>
+</div>
+
+</div>
+</body>
+</html>

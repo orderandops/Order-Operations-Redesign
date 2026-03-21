@@ -49,9 +49,9 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <a href="https://darcie-coowof3d.scoreapp.com/" target="_blank" rel="noopener noreferrer">
+                  <a href="/stress-test.html">
                     <Button size="lg" className="rounded-full px-8 h-14 text-base bg-primary hover:bg-primary/90 w-full sm:w-auto">
-                      Take HR Foundations Assessment
+                      Take the HR Liability Stress Test
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </a>
