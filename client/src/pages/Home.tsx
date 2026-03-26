@@ -236,7 +236,7 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  <a href="https://textmyapp.replit.app" target="_blank" rel="noopener noreferrer">
+                  <a href="https://textmyapp.com" target="_blank" rel="noopener noreferrer">
                     <Button variant="outline" className="rounded-full px-6 border-secondary text-secondary">
                       Explore TextMyApp
                       <ChevronRight className="ml-2 h-4 w-4" />
