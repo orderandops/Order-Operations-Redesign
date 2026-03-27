@@ -8,12 +8,14 @@ import Home from "@/pages/Home";
 import Admin from "@/pages/Admin";
 import TermsAndConditions from "@/pages/TermsAndConditions";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import Apply from "@/pages/Apply";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/admin" component={Admin} />
+      <Route path="/apply" component={Apply} />
       <Route path="/terms-conditions" component={TermsAndConditions} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route component={NotFound} />
