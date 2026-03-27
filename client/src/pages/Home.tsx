@@ -354,6 +354,7 @@ export default function Home() {
             
             <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
               <a href="https://www.orderandoperations.com/faq" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">FAQ</a>
+              <a href="/apply" className="hover:text-primary transition-colors">Apply</a>
               <a href="/terms-conditions" className="hover:text-primary transition-colors">Terms & Conditions</a>
               <a href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</a>
               <a href="https://www.orderandoperations.com/refund-policy" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Refund Policy</a>
