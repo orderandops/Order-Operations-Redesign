@@ -39,8 +39,8 @@ export default function Apply() {
                 },
                 {
                   step: "2",
-                  title: "Text your code to (704) 235-1350",
-                  description: "Send your application code as a text message to our number."
+                  title: "Text your code to (704) 235-1350 or (888) 808-3231",
+                  description: "Send your application code as a text message to either number."
                 },
                 {
                   step: "3",
@@ -69,7 +69,7 @@ export default function Apply() {
             <div className="mt-16 bg-secondary rounded-3xl p-8 text-white text-center">
               <h2 className="text-2xl font-bold mb-4">Example</h2>
               <p className="text-white/80 text-lg">
-                If your code is <span className="font-bold text-primary bg-primary/20 px-2 py-0.5 rounded">APP001</span>, text <span className="font-bold text-primary bg-primary/20 px-2 py-0.5 rounded">"APP001"</span> to <span className="font-bold text-white">(704) 235-1350</span>
+                If your code is <span className="font-bold text-primary bg-primary/20 px-2 py-0.5 rounded">APP001</span>, text <span className="font-bold text-primary bg-primary/20 px-2 py-0.5 rounded">"APP001"</span> to <span className="font-bold text-white">(704) 235-1350</span> or <span className="font-bold text-white">(888) 808-3231</span>
               </p>
             </div>
 
