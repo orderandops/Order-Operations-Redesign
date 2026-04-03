@@ -2,6 +2,8 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertPageViewSchema, insertClickEventSchema } from "@shared/schema";
+import fs from "fs";
+import path from "path";
 
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "orderandops2024";
 
@@ -27,6 +29,33 @@ export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
+  const publicDir = path.resolve(process.cwd(), "client", "public");
+  const distPublicDir = path.resolve(process.cwd(), "dist", "public");
+
+  function resolvePublicFile(filename: string): string | null {
+    const distPath = path.join(distPublicDir, filename);
+    if (fs.existsSync(distPath)) return distPath;
+    const devPath = path.join(publicDir, filename);
+    if (fs.existsSync(devPath)) return devPath;
+    return null;
+  }
+
+  app.get("/sitemap.xml", (_req, res) => {
+    const filePath = resolvePublicFile("sitemap.xml");
+    if (!filePath) return res.status(404).send("Not found");
+    res.setHeader("Content-Type", "application/xml; charset=utf-8");
+    res.setHeader("Cache-Control", "public, max-age=86400");
+    res.sendFile(filePath);
+  });
+
+  app.get("/robots.txt", (_req, res) => {
+    const filePath = resolvePublicFile("robots.txt");
+    if (!filePath) return res.status(404).send("Not found");
+    res.setHeader("Content-Type", "text/plain; charset=utf-8");
+    res.setHeader("Cache-Control", "public, max-age=86400");
+    res.sendFile(filePath);
+  });
+
   app.post("/api/track/pageview", async (req, res) => {
     try {
       const ip =
