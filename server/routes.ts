@@ -29,14 +29,18 @@ export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
-  const publicDir = path.resolve(process.cwd(), "client", "public");
+  // Root-level public/ folder (source of truth for static assets like sitemap/robots)
+  const rootPublicDir = path.resolve(process.cwd(), "public");
+  // Vite copies root public/ into dist/public/ at build time
   const distPublicDir = path.resolve(process.cwd(), "dist", "public");
 
   function resolvePublicFile(filename: string): string | null {
+    // In development: serve from root public/ directly
+    const rootPath = path.join(rootPublicDir, filename);
+    if (fs.existsSync(rootPath)) return rootPath;
+    // In production: serve from dist/public/ (copied there by Vite build)
     const distPath = path.join(distPublicDir, filename);
     if (fs.existsSync(distPath)) return distPath;
-    const devPath = path.join(publicDir, filename);
-    if (fs.existsSync(devPath)) return devPath;
     return null;
   }
 
