@@ -1,7 +1,12 @@
 import newLogo from "@assets/image_1772658839853.png";
 import { MessageSquare } from "lucide-react";
+import { usePageMeta } from "@/hooks/use-page-meta";
 
 export default function Apply() {
+  usePageMeta(
+    "Apply for Jobs via Text | TextMyApp by Order & Operations",
+    "Apply for jobs instantly by text message — no apps, no forms required. Text your application code to (704) 235-1350 or (888) 808-3231. Powered by TextMyApp from Order & Operations Consulting."
+  );
   return (
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">

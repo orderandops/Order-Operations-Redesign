@@ -1,6 +1,11 @@
 import newLogo from "@assets/image_1772658839853.png";
+import { usePageMeta } from "@/hooks/use-page-meta";
 
 export default function TermsAndConditions() {
+  usePageMeta(
+    "Terms & Conditions | Order & Operations Consulting",
+    "Terms and conditions for Order & Operations Consulting services, including the TextMyApp SMS hiring platform. Includes SMS opt-out instructions (STOP/HELP) and message frequency disclosures."
+  );
   return (
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">

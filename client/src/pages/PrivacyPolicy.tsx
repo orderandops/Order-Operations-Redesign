@@ -1,6 +1,11 @@
 import newLogo from "@assets/image_1772658839853.png";
+import { usePageMeta } from "@/hooks/use-page-meta";
 
 export default function PrivacyPolicy() {
+  usePageMeta(
+    "Privacy Policy | Order & Operations Consulting",
+    "Privacy policy for Order & Operations Consulting. Details what data we collect, how it is used, and confirms your information is never shared with third parties for marketing purposes."
+  );
   return (
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
