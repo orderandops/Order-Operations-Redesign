@@ -11,6 +11,7 @@ import {
   LogOut,
   BarChart3,
   Lock,
+  Fingerprint,
 } from "lucide-react";
 
 function LoginForm({ onLogin }: { onLogin: (token: string) => void }) {
@@ -166,18 +167,24 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
       </header>
 
       <div className="container mx-auto px-4 md:px-6 py-8 space-y-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
           <StatCard
-            label="Page Views"
+            label="Total Page Views"
             value={data.totalPageViews.toLocaleString()}
             icon={Eye}
             sub={`Last ${days} days`}
           />
           <StatCard
-            label="Unique Visitors"
+            label="Unique Sessions"
             value={data.uniqueVisitors.toLocaleString()}
             icon={Users}
-            sub={`Last ${days} days`}
+            sub="Session-based visitors"
+          />
+          <StatCard
+            label="Unique IP Visitors"
+            value={data.uniqueIpVisitors.toLocaleString()}
+            icon={Fingerprint}
+            sub="IP-based unique visitors"
           />
           <StatCard
             label="Link Clicks"
@@ -193,10 +200,52 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
           />
         </div>
 
+        {/* Per-Page Visitor Breakdown */}
+        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+          <h3 className="text-lg font-semibold text-[#04455E] mb-1 flex items-center gap-2">
+            <Users className="h-5 w-5" /> Visitors by Page
+          </h3>
+          <p className="text-xs text-gray-400 mb-4">Unique IP = same person on same network counts once. Unique Sessions = each new browser session counts separately.</p>
+          {!data.pageVisitorStats || data.pageVisitorStats.length === 0 ? (
+            <p className="text-gray-400 text-sm">No data yet</p>
+          ) : (
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-gray-100">
+                    <th className="text-left py-3 px-2 text-gray-500 font-medium">Page</th>
+                    <th className="text-right py-3 px-2 text-gray-500 font-medium">Total Views</th>
+                    <th className="text-right py-3 px-2 text-gray-500 font-medium">Unique IP Visitors</th>
+                    <th className="text-right py-3 px-2 text-gray-500 font-medium">Unique Sessions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.pageVisitorStats.map((p: any, i: number) => (
+                    <tr key={i} className="border-b border-gray-50 hover:bg-gray-50/50">
+                      <td className="py-3 px-2 text-gray-700 font-mono text-xs">{p.page}</td>
+                      <td className="py-3 px-2 text-right font-semibold text-[#04455E]">{p.totalViews.toLocaleString()}</td>
+                      <td className="py-3 px-2 text-right">
+                        <span className="inline-flex items-center gap-1 text-[#AD674C] font-semibold">
+                          <Fingerprint className="h-3 w-3" />{p.uniqueIpVisitors.toLocaleString()}
+                        </span>
+                      </td>
+                      <td className="py-3 px-2 text-right">
+                        <span className="inline-flex items-center gap-1 text-[#04455E] font-semibold">
+                          <Users className="h-3 w-3" />{p.uniqueSessionVisitors.toLocaleString()}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-6">
           <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
             <h3 className="text-lg font-semibold text-[#04455E] mb-4 flex items-center gap-2">
-              <Eye className="h-5 w-5" /> Top Pages
+              <Eye className="h-5 w-5" /> Top Pages by Views
             </h3>
             {data.topPages.length === 0 ? (
               <p className="text-gray-400 text-sm">No data yet</p>

@@ -13,6 +13,13 @@ import { drizzle } from "drizzle-orm/node-postgres";
 import { desc, sql, gte, count } from "drizzle-orm";
 import pg from "pg";
 
+export type PageVisitorStat = {
+  page: string;
+  totalViews: number;
+  uniqueIpVisitors: number;
+  uniqueSessionVisitors: number;
+};
+
 export interface IStorage {
   getUser(id: string): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
@@ -21,9 +28,11 @@ export interface IStorage {
   insertClickEvent(ce: InsertClickEvent): Promise<ClickEvent>;
   getPageViews(limit?: number, offset?: number): Promise<PageView[]>;
   getClickEvents(limit?: number, offset?: number): Promise<ClickEvent[]>;
+  getPageVisitorStats(days?: number): Promise<PageVisitorStat[]>;
   getAnalyticsSummary(days?: number): Promise<{
     totalPageViews: number;
     uniqueVisitors: number;
+    uniqueIpVisitors: number;
     totalClicks: number;
     avgDuration: number;
     topPages: { page: string; views: number }[];
@@ -32,6 +41,7 @@ export interface IStorage {
     recentVisitors: PageView[];
     clicksByElement: { elementText: string; href: string | null; count: number }[];
     viewsByDay: { date: string; views: number }[];
+    pageVisitorStats: PageVisitorStat[];
   }>;
 }
 
@@ -75,6 +85,30 @@ export class DatabaseStorage implements IStorage {
     return db.select().from(clickEvents).orderBy(desc(clickEvents.timestamp)).limit(limit).offset(offset);
   }
 
+  async getPageVisitorStats(days = 30): Promise<PageVisitorStat[]> {
+    const since = new Date();
+    since.setDate(since.getDate() - days);
+
+    const rows = await db
+      .select({
+        page: pageViews.page,
+        totalViews: count(),
+        uniqueIpVisitors: sql<number>`COUNT(DISTINCT ${pageViews.ipAddress})`,
+        uniqueSessionVisitors: sql<number>`COUNT(DISTINCT ${pageViews.sessionId})`,
+      })
+      .from(pageViews)
+      .where(gte(pageViews.timestamp, since))
+      .groupBy(pageViews.page)
+      .orderBy(desc(count()));
+
+    return rows.map((r) => ({
+      page: r.page,
+      totalViews: r.totalViews,
+      uniqueIpVisitors: Number(r.uniqueIpVisitors),
+      uniqueSessionVisitors: Number(r.uniqueSessionVisitors),
+    }));
+  }
+
   async getAnalyticsSummary(days = 30) {
     const since = new Date();
     since.setDate(since.getDate() - days);
@@ -86,6 +120,11 @@ export class DatabaseStorage implements IStorage {
 
     const [uniqueResult] = await db
       .select({ count: sql<number>`COUNT(DISTINCT ${pageViews.sessionId})` })
+      .from(pageViews)
+      .where(gte(pageViews.timestamp, since));
+
+    const [uniqueIpResult] = await db
+      .select({ count: sql<number>`COUNT(DISTINCT ${pageViews.ipAddress})` })
       .from(pageViews)
       .where(gte(pageViews.timestamp, since));
 
@@ -156,9 +195,12 @@ export class DatabaseStorage implements IStorage {
       .groupBy(sql`TO_CHAR(${pageViews.timestamp}, 'YYYY-MM-DD')`)
       .orderBy(sql`TO_CHAR(${pageViews.timestamp}, 'YYYY-MM-DD')`);
 
+    const pageVisitorStats = await this.getPageVisitorStats(days);
+
     return {
       totalPageViews: totalPvResult.count,
       uniqueVisitors: Number(uniqueResult.count),
+      uniqueIpVisitors: Number(uniqueIpResult.count),
       totalClicks: totalClickResult.count,
       avgDuration: Math.round(Number(avgDurResult.avg)),
       topPages: topPages.map((r) => ({ page: r.page, views: r.views })),
@@ -167,6 +209,7 @@ export class DatabaseStorage implements IStorage {
       recentVisitors,
       clicksByElement: clicksByElement.map((r) => ({ elementText: r.elementText, href: r.href, count: r.count })),
       viewsByDay: viewsByDay.map((r) => ({ date: r.date, views: r.views })),
+      pageVisitorStats,
     };
   }
 }
