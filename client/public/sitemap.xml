@@ -4,20 +4,4 @@
     <loc>https://orderandoperations.com/</loc>
     <priority>1.0</priority>
   </url>
-  <url>
-    <loc>https://orderandoperations.com/apply</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://orderandoperations.com/stress-test.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://orderandoperations.com/terms-conditions</loc>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://orderandoperations.com/privacy-policy</loc>
-    <priority>0.4</priority>
-  </url>
 </urlset>
