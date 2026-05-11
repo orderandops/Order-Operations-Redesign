@@ -29,16 +29,15 @@ export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
-  // Root-level public/ folder (source of truth for static assets like sitemap/robots)
-  const rootPublicDir = path.resolve(process.cwd(), "public");
-  // Vite copies root public/ into dist/public/ at build time
+  // Search paths for static public files (checked in order)
+  const clientPublicDir = path.resolve(process.cwd(), "client", "public");
   const distPublicDir = path.resolve(process.cwd(), "dist", "public");
 
   function resolvePublicFile(filename: string): string | null {
-    // In development: serve from root public/ directly
-    const rootPath = path.join(rootPublicDir, filename);
-    if (fs.existsSync(rootPath)) return rootPath;
-    // In production: serve from dist/public/ (copied there by Vite build)
+    // Development: serve from client/public/ (Vite's publicDir)
+    const devPath = path.join(clientPublicDir, filename);
+    if (fs.existsSync(devPath)) return devPath;
+    // Production: serve from dist/public/ (Vite build output)
     const distPath = path.join(distPublicDir, filename);
     if (fs.existsSync(distPath)) return distPath;
     return null;
@@ -58,6 +57,16 @@ export async function registerRoutes(
     res.setHeader("Content-Type", "text/plain; charset=utf-8");
     res.setHeader("Cache-Control", "public, max-age=86400");
     res.sendFile(filePath);
+  });
+
+  app.get("/.well-known/microsoft-identity-association.json", (_req, res) => {
+    res.setHeader("Content-Type", "application/json");
+    res.setHeader("Cache-Control", "public, max-age=86400");
+    res.status(200).json({
+      associatedApplications: [
+        { applicationId: "c232b6a3-0c26-4045-900d-582ba3883dc9" }
+      ]
+    });
   });
 
   app.post("/api/track/pageview", async (req, res) => {
